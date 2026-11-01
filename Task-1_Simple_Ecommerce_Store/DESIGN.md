@@ -12,6 +12,3 @@ Use an expressive editorial serif for the lead and a composed sans-serif for con
 
 Search, filters, product details, bag edits, sign-in, and demo checkout remain direct and keyboard accessible. Theme changes preserve readable contrast.
 
-## Reference translation
-
-The surface uses the reference's editorial hierarchy and warm palette, translated to the existing everyday-goods catalog rather than replacing its products with fashion inventory.

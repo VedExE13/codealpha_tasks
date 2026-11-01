@@ -25,6 +25,3 @@ Open `http://localhost:3000`. The first account can browse and place a demo orde
 
 HTML, CSS, JavaScript, Express, and SQLite (`better-sqlite3`).
 
-## Design reference
-
-The visual direction takes cues from [Velour — Fashion E-commerce Website Design](https://dribbble.com/shots/27165602-Velour-Fashion-E-commerce-Website-Design): editorial typography, warm neutrals, generous product imagery, and a clear shopping path. Product names and demo merchandise remain specific to this project.

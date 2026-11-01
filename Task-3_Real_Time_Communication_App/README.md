@@ -26,6 +26,3 @@ Open `http://localhost:3000`, sign in, and create a room. Share the invite link 
 
 HTML, CSS, JavaScript, Express, SQLite (`better-sqlite3`), server-sent events, WebRTC, and the Web Crypto API.
 
-## Design reference
-
-The visual direction takes cues from [NeuroBank — Online Banking Dashboard Design](https://dribbble.com/shots/26127078-NeuroBank-Online-Banking-Dashboard-Design): deep indigo surfaces, crisp blue signals, compact information hierarchy, and a focused dark canvas. These colors and dashboard cues are adapted to communication controls, not financial content.

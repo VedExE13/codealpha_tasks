@@ -12,6 +12,3 @@ Use a sturdy geometric sans for hierarchy and a neutral sans for task copy. Keep
 
 Task cards support click, keyboard focus, and drag-and-drop. Project changes carry the selected project's accent through the full header and move the board as one brief, restrained transition.
 
-## Reference translation
-
-The management-dashboard reference informs the green-and-lime palette and modular organization. Only project and task information is shown; financial or automation metrics are not invented.

@@ -25,6 +25,3 @@ Open `http://localhost:3000`, then create an account to access your board. The s
 
 HTML, CSS, JavaScript, Express, and SQLite (`better-sqlite3`).
 
-## Design reference
-
-The visual direction takes cues from [Web App UI Design — Management Dashboard](https://dribbble.com/shots/26825384-Web-App-UI-Design-Management-Dashboard): structured workflow areas, soft modular surfaces, forest greens, and a sharp lime signal. The board remains a project tool rather than an analytics screen.

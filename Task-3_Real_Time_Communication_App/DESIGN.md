@@ -12,6 +12,3 @@ Use a confident geometric sans for room and panel titles and a compact sans for 
 
 Joining, copy code, invite link, people, leave, and delete remain distinct. Microphone and camera are off until the user enables them. Whiteboard controls stay visible and keyboard reachable.
 
-## Reference translation
-
-The banking-dashboard reference contributes its dark indigo and cobalt information hierarchy. Financial values, transactions, and assistant claims are not imported into the communication product.

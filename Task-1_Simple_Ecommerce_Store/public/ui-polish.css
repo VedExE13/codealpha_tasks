@@ -1,0 +1,176 @@
+/* UI craft pass informed by Unslop by Damir Sokolovsky (CC BY 4.0): https://github.com/heydamir/unslop */
+:root { --ui-ease: cubic-bezier(.2,.75,.25,1); }
+
+/* The combined studio carries each project's own color across the full header. */
+body[data-current-view="store"] { --bar-ink:#342b26; --bar-accent:#bd785d; --view-signal:#bd785d; }
+body[data-current-view="board"] { --bar-ink:#202720; --bar-accent:#b99a70; --signal-ink:#171a15; }
+body[data-current-view="board"][data-board-tone="clay"] { --board-ink:#49392f; --board-header:#3a302a; --board-signal:#d2ac7b; --bar-ink:#3a302a; --bar-accent:#d2ac7b; }
+body[data-current-view="board"][data-board-tone="mint"] { --board-ink:#20342e; --board-header:#20342e; --board-signal:#9db8a4; --bar-ink:#20342e; --bar-accent:#9db8a4; }
+body[data-current-view="board"][data-board-tone="blue"] { --board-ink:#29333d; --board-header:#29333d; --board-signal:#a8b8ca; --bar-ink:#29333d; --bar-accent:#a8b8ca; }
+body[data-current-view="channel"] { --bar-ink:#18332f; --bar-accent:#83b8a6; --view-signal:#83b8a6; }
+body[data-current-view] .topbar {
+  background:var(--bar-ink)!important;
+  transition:background-color .34s var(--ui-ease),border-color .34s var(--ui-ease);
+}
+body[data-current-view] .topbar .main-nav { background:transparent!important; }
+body[data-current-view] .topbar .nav-link.active::after,
+body[data-current-view] .topbar::after { background:var(--bar-accent)!important; transition:background-color .28s var(--ui-ease); }
+body[data-current-view] .topbar .brand-mark { transition:background-color .28s var(--ui-ease),color .28s var(--ui-ease); }
+
+/* Softer label rhythm; retain the site's editorial display type. */
+.eyebrow,.section-index,.step-label,.field-label,.room-rail-head,.board-prompt,.filter,
+.main-nav .nav-link,.button,.primary-btn,.secondary-btn,.text-button,.room-tool-button {
+  letter-spacing:.04em;
+}
+.main-nav .nav-link,.filter,.button,.primary-btn,.secondary-btn,.text-button { text-transform:capitalize; }
+.button,.primary-btn,.secondary-btn,.text-button,.filter,.nav-link {
+  transition:color .18s var(--ui-ease),background-color .18s var(--ui-ease),border-color .18s var(--ui-ease),transform .18s var(--ui-ease);
+}
+.product-card,.task-card,.room-list-row,.room-panel {
+  transition:background-color .2s var(--ui-ease),border-color .2s var(--ui-ease),box-shadow .2s var(--ui-ease),transform .2s var(--ui-ease);
+}
+:where(button,a,input,select,textarea,[tabindex]):focus-visible {
+  outline:2px solid var(--view-signal,var(--signal)); outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important; }
+}
+
+/* Goods: a considered homewares catalog on warm stockroom paper. */
+body[data-task="store"] .hero h1,body[data-current-view="store"] .hero h1 {
+  max-width:560px;font-size:clamp(58px,5.1vw,70px);line-height:.98;letter-spacing:-.035em;
+}
+body[data-task="store"] .hero,body[data-current-view="store"] .hero { gap:clamp(32px,5vw,76px); }
+body[data-task="store"] .hero-art,body[data-current-view="store"] .hero-art {
+  border-color:color-mix(in srgb,var(--ink) 13%,transparent);
+}
+body[data-task="store"] .product-card,body[data-current-view="store"] .product-card { background:transparent; }
+body[data-task="store"] .product-card:hover,body[data-current-view="store"] .product-card:hover {
+  background:color-mix(in srgb,var(--paper-white) 68%,transparent);transform:translateY(-2px);
+}
+body[data-task="store"] .product-card:focus-within,body[data-current-view="store"] .product-card:focus-within {
+  outline:1px solid color-mix(in srgb,var(--signal) 45%,transparent);outline-offset:3px;
+}
+
+/* Workbench: trade fluorescent chartreuse for a quieter, project-coded accent. */
+body[data-task="board"] { --signal:#53694f;--signal-alt:#9daa7d; }
+:root[data-theme="dark"] body[data-task="board"] { --signal:#b9c792;--signal-alt:#b9c792;--signal-ink:#111712; }
+body[data-task="board"] .button-dark,body[data-task="board"] .button-wide,
+body[data-task="board"] .board-intro>.button {
+  background:var(--signal)!important;border-color:var(--signal)!important;color:var(--signal-ink)!important;
+}
+body[data-task="board"] .board-summary,body[data-task="board"] .task-column {
+  border-color:color-mix(in srgb,var(--ink) 11%,transparent);
+}
+body[data-task="board"] .task-card { transition:background-color .18s var(--ui-ease),border-color .18s var(--ui-ease),transform .18s var(--ui-ease); }
+body[data-task="board"] .task-card:hover { transform:translateY(-1px); }
+body[data-current-view="board"] .button-dark,body[data-current-view="board"] .board-intro>.button {
+  background:var(--view-signal)!important;border-color:var(--view-signal)!important;color:var(--signal-ink)!important;
+}
+body[data-current-view="board"] #task-columns:empty {
+  min-height:228px;display:grid;place-items:center;border:1px solid var(--rule);
+  background:color-mix(in srgb,var(--paper-white) 74%,transparent);
+}
+body[data-current-view="board"] #task-columns:empty::before {
+  content:"Sign in to open your shared board";
+  color:var(--muted);font:500 13px/1.5 var(--body-font);letter-spacing:.01em;
+}
+
+/* Open Room: charcoal surfaces, muted iris controls, and a readable live stage. */
+body[data-task="channel"] {
+  --ink:#e9edeb;--paper:#14191b;--paper-white:#1c2224;--paper-deep:#272e30;
+  --muted:#b5bfbd;--rule:#384144;--signal:#9aa8cc;--signal-alt:#9aa8cc;--signal-ink:#111519;
+}
+:root[data-theme="light"] body[data-task="channel"] {
+  --ink:#202627;--paper:#f2f3ef;--paper-white:#fff;--paper-deep:#e6e9e4;
+  --muted:#5b6665;--rule:#cbd2cd;--signal:#52658c;--signal-alt:#52658c;--signal-ink:#fff;
+}
+body[data-task="channel"] .room-rail,body[data-task="channel"] .room-empty,
+body[data-task="channel"] .room-panel,body[data-task="channel"] .video-grid,
+body[data-task="channel"] .call-toolbar { border-color:var(--rule); }
+body[data-task="channel"] .room-rail,body[data-task="channel"] .room-empty,
+body[data-task="channel"] .room-panel,body[data-task="channel"] .video-grid,
+body[data-task="channel"] .call-toolbar {
+  background-color:var(--paper-white)!important;color:var(--ink);
+}
+body[data-task="channel"] .channel-intro h1 em,body[data-task="channel"] .room-empty h2 em { color:var(--signal); }
+body[data-task="channel"] .button:not(.button-outline),body[data-task="channel"] .primary-btn,
+body[data-task="channel"] .auth-submit,body[data-task="channel"] #room-create-form button,
+body[data-task="channel"] #room-join-form button {
+  background-color:var(--signal)!important;border-color:var(--signal)!important;color:var(--signal-ink)!important;
+}
+body[data-task="channel"] input,body[data-task="channel"] textarea,body[data-task="channel"] select {
+  background-color:var(--paper-deep);border-color:var(--rule);color:var(--ink);
+}
+body[data-task="channel"] .room-list-row:hover,body[data-task="channel"] .room-list-row.active {
+  background:color-mix(in srgb,var(--signal) 12%,var(--paper-white));
+}
+body[data-task="channel"] .call-toolbar .button[aria-pressed="true"] {
+  background:var(--signal)!important;border-color:var(--signal)!important;color:var(--signal-ink)!important;
+}
+body[data-current-view="channel"] .room-empty {
+  background:#1d3834!important;border-color:#46645d;
+}
+
+
+/* Final contrast and empty-state checks from the live preview. */
+body[data-current-view="board"] {
+  --board-signal: var(--bar-accent);
+  --view-signal: var(--board-signal);
+  --signal-ink: #171a15;
+}
+body[data-current-view="board"][data-board-tone="clay"] {
+  --board-signal:#d2ac7b;--view-signal:#d2ac7b;--bar-accent:#d2ac7b;
+}
+body[data-current-view="board"][data-board-tone="mint"] {
+  --board-signal:#9db8a4;--view-signal:#9db8a4;--bar-accent:#9db8a4;
+}
+body[data-current-view="board"][data-board-tone="blue"] {
+  --board-signal:#a8b8ca;--view-signal:#a8b8ca;--bar-accent:#a8b8ca;
+}
+body[data-current-view] .topbar { border-bottom-color:var(--bar-accent)!important; }
+body[data-current-view="board"] .button-dark,
+body[data-current-view="board"] .board-intro>.button {
+  background:var(--view-signal)!important;border-color:var(--view-signal)!important;color:var(--signal-ink)!important;
+}
+body[data-current-view="board"] #task-columns:empty { min-height:190px; }
+body[data-current-view="board"] #task-columns:empty::before { text-align:center; }
+
+/* Keep the three management actions on the same non-neon project accent. */
+body[data-task="board"] .button-dark,
+body[data-task="board"] .button-wide,
+body[data-task="board"] .board-intro>.button {
+  background:var(--signal)!important;border-color:var(--signal)!important;color:var(--signal-ink)!important;
+}
+
+/* Remove the leftover saturated panels and buttons in the room view. */
+body[data-task="channel"] .room-empty {
+  background-color:var(--paper-white)!important;
+}
+body[data-task="channel"] #room-create-form button,
+body[data-task="channel"] #room-join-form button,
+body[data-task="channel"] .room-form button {
+  background:var(--signal)!important;border-color:var(--signal)!important;color:var(--signal-ink)!important;
+}
+body[data-task="channel"] .room-form input,
+body[data-task="channel"] .room-form textarea {
+  background:var(--paper-deep)!important;border-color:var(--rule)!important;color:var(--ink)!important;
+}
+
+
+body[data-current-view] .topbar { box-shadow:0 2px 0 var(--bar-accent)!important; }
+body[data-current-view="board"] #task-columns:empty::before { grid-column:1/-1; }
+
+
+/* The independent submissions keep their own header systems; only the studio preview switches bar colors. */
+body[data-task="store"] .topbar { background:#e6e1da!important;color:#211a17; }
+:root[data-theme="dark"] body[data-task="store"] .topbar { background:#211e1b!important;color:#f2eee8; }
+body[data-task="board"] .topbar { background:#060807!important;color:#f4f6f1; }
+body[data-task="channel"] .topbar { background:#080a16!important;color:#f4f5fc; }
+:root[data-theme="light"] body[data-task="channel"] .topbar { background:#11172e!important;color:#f4f5fc; }
+body:not([data-task])[data-current-view] .topbar { background:var(--bar-ink)!important; }
+body:not([data-task])[data-current-view] .topbar .main-nav { background:transparent!important; }
+body:not([data-task])[data-current-view] .topbar .nav-link.active::after,
+body:not([data-task])[data-current-view] .topbar::after { background:var(--bar-accent)!important; }
+body:not([data-task])[data-current-view] .topbar { border-bottom-color:var(--bar-accent)!important;box-shadow:0 2px 0 var(--bar-accent)!important; }
+
